@@ -1,10 +1,20 @@
 using BlackJack.classes;
+using System.Runtime.CompilerServices;
 
 namespace BlackJack
 {
     public partial class Form1 : Form
     {
+
         Card twoOfHearts = new Card(Suits.HEARTS, FaceValues.TWO);
+        Random random = new Random();
+        Deck deck = new Deck();
+
+        //for the dealer
+        int RoundsWon;
+        int RoundsLost;
+        int Record;
+
         public Form1()
         {
             InitializeComponent();
@@ -13,9 +23,14 @@ namespace BlackJack
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+       
 
+        private void ShuffleDeck_Click(object sender, EventArgs e)
+        {
+            
+            deck.Shuffle();
+            System.Diagnostics.Debug.WriteLine("it works");
+          
         }
     }
 }

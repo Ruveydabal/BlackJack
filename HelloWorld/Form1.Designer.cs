@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            ShuffleDeck = new Button();
             SuspendLayout();
             // 
-            // button1
+            // ShuffleDeck
             // 
-            button1.Location = new Point(144, 113);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            ShuffleDeck.Location = new Point(157, 84);
+            ShuffleDeck.Name = "ShuffleDeck";
+            ShuffleDeck.Size = new Size(94, 29);
+            ShuffleDeck.TabIndex = 0;
+            ShuffleDeck.Text = "Shuflle";
+            ShuffleDeck.UseVisualStyleBackColor = true;
+            ShuffleDeck.Click += ShuffleDeck_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            Controls.Add(ShuffleDeck);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private Button button1;
+        private Button ShuffleDeck;
     }
 }
