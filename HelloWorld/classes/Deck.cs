@@ -27,15 +27,15 @@ namespace BlackJack.classes
         {
             Random random = new Random();
 
-            int deckLength =cards.Count;
+            int cardLength =cards.Count;
 
-            while (deckLength > 1)
+            while (cardLength > 1)
             {
-                int randomize = random.Next(deckLength--);
-                Card temp = cards[deckLength];
-                cards[deckLength] = cards[randomize];
+                int randomize = random.Next(cardLength--);
+                Card temp = cards[cardLength];
+                cards[cardLength] = cards[randomize];
                 cards[randomize] = temp;
-            }
+            }   
         }
 
     }
