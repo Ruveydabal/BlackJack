@@ -38,6 +38,18 @@ namespace BlackJack.classes
             }   
         }
 
+        public Card DrawCard()
+        {
+            if (cards.Count <= 0)
+            {
+                return null;
+            }
+
+            Card drawCard = cards[0];
+            cards.RemoveAt(0);
+            return drawCard;
+        }
+
     }
 }
 

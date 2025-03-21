@@ -31,7 +31,7 @@ namespace BlackJack.classes
         KING
     }
 
-     class Card
+     public class Card
     {
         Suits suits;
         FaceValues faceValues;
@@ -54,7 +54,7 @@ namespace BlackJack.classes
         public Card(Suits suits, FaceValues faceValues)
         {
             this.suits = suits;
-            this.faceValues = new FaceValues();
+            this.faceValues = faceValues;
 
             switch(faceValues)
             {
@@ -72,7 +72,11 @@ namespace BlackJack.classes
                         break;
             }
         }
-        
-        
+
+        public override string ToString()
+        {
+           return this.faceValues + " of " + this.suits;
+        }
+
     }
 }

@@ -23,14 +23,20 @@ namespace BlackJack
 
         }
 
-       
+
 
         private void ShuffleDeck_Click(object sender, EventArgs e)
         {
-            
+
             deck.Shuffle();
             System.Diagnostics.Debug.WriteLine("it works");
-          
+
+        }
+
+        private void DrawCard_Click(object sender, EventArgs e)
+        {
+            Card drawCard = deck.DrawCard();
+            DrawCardText.Text = drawCard.ToString();
         }
     }
 }
