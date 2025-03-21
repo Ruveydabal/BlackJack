@@ -38,5 +38,10 @@ namespace BlackJack
             Card drawCard = deck.DrawCard();
             DrawCardText.Text = drawCard.ToString();
         }
+
+        public void Natural()
+        {
+
+        }
     }
 }
