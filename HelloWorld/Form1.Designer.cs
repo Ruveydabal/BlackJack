@@ -31,6 +31,7 @@
             ShuffleDeck = new Button();
             DrawCard = new Button();
             DrawCardText = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // ShuffleDeck
@@ -62,11 +63,20 @@
             DrawCardText.TabIndex = 2;
             DrawCardText.Text = "Draw card text";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(607, 329);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 20);
+            label1.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(DrawCardText);
             Controls.Add(DrawCard);
             Controls.Add(ShuffleDeck);
@@ -81,5 +91,6 @@
         private Button ShuffleDeck;
         private Button DrawCard;
         private Label DrawCardText;
+        private Label label1;
     }
 }

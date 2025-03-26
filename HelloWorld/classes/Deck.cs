@@ -9,6 +9,7 @@ namespace BlackJack.classes
     public class Deck
     {
         List<Card> cards = new List<Card>();
+        Card card;
 
         public Deck()
         {
@@ -42,13 +43,15 @@ namespace BlackJack.classes
         {
             if (cards.Count <= 0)
             {
-                return null;
+                 return null;
             }
 
             Card drawCard = cards[0];
             cards.RemoveAt(0);
             return drawCard;
         }
+
+       
 
     }
 }

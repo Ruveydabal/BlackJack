@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJack.classes
 {
+   
     public enum Suits
     {
         CLUBS,
@@ -33,23 +34,15 @@ namespace BlackJack.classes
 
      public class Card
     {
+        bool showFaceValue = false;
         Suits suits;
         FaceValues faceValues;
         int value;
         Image img; 
 
-        public Suits Suits 
-        {  
-            get 
-            { 
-                return suits; 
-            } 
-            set
-            {
-                suits = value;
-            }
-        }
-
+        public Suits Suits { get { return suits; } }
+        public int Value { get { return value; } }
+        public bool ShowFaceValue { get { return showFaceValue; } }
 
         public Card(Suits suits, FaceValues faceValues)
         {
@@ -73,9 +66,21 @@ namespace BlackJack.classes
             }
         }
 
+        public void Flip()
+        {
+            showFaceValue = true;
+        }
         public override string ToString()
         {
-           return this.faceValues + " of " + this.suits;
+            if (showFaceValue == true)
+            {
+                return this.faceValues + " of " + this.suits;
+            }
+            else
+            {
+                return "The value is hidden";
+            }
+       
         }
 
     }

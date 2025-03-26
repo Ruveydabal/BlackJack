@@ -8,6 +8,6 @@ namespace BlackJack.classes
 {
     internal class Hand
     {
-        Deck deck = new Deck();
+      //  Deck deck = new Deck();
     }
 }
