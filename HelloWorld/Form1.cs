@@ -11,6 +11,7 @@ namespace BlackJack
         Random random = new Random();
         Deck deck = new Deck();
         List<Card> cards = new List<Card>();
+        Player[] players = new Player[6];
 
         /*private enum GameStates
         {//need to make a state diagram to use this
@@ -29,6 +30,12 @@ namespace BlackJack
             InitializeComponent();
 
             Console.WriteLine(twoOfHearts.Suits);
+
+            //players[0] = new Player(Player1Card1);
+            //players[1] = new Player(Player2Card1);
+
+  //          players[2] = new Player(Player1Card2);
+//            players[3] = new Player(Player2Card2);
 
         }
 
@@ -54,11 +61,11 @@ namespace BlackJack
 
         public Card DealCards()
         {
-            
             Card dealFirstCard = deck.DrawCard();
             dealFirstCard.Flip();
             return dealFirstCard;
-
         }
+
+       
     }
 }
