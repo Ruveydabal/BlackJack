@@ -42,7 +42,7 @@ namespace BlackJack.classes
 
         public Suits Suits { get { return suits; } }
         public int Value { get { return value; } }
-        public bool ShowFaceValue { get { return showFaceValue; } }
+        public bool ShowFaceValue { get { return showFaceValue;} }
 
         public Card(Suits suits, FaceValues faceValues)
         {
@@ -67,9 +67,10 @@ namespace BlackJack.classes
         }
 
         public void Flip()
-        {
+        {//when you use this function you get to see the value of the card
             showFaceValue = true;
         }
+
         public override string ToString()
         {
             if (showFaceValue == true)

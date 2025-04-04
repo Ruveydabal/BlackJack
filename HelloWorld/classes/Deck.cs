@@ -25,7 +25,7 @@ namespace BlackJack.classes
         }
 
         public void Shuffle()
-        {
+        {// the cards get a random order 
             Random random = new Random();
 
             int cardLength =cards.Count;
@@ -43,6 +43,7 @@ namespace BlackJack.classes
         {
             if (cards.Count <= 0)
             {
+                 
                  return null;
             }
 

@@ -95,6 +95,7 @@
             button1.TabIndex = 6;
             button1.Text = "Dealing cards";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += DealingCardsButton;
             // 
             // label2
             // 

@@ -9,10 +9,12 @@ namespace BlackJack.classes
     internal class Hand
     {
         System.Windows.Forms.Label label;
-
+ 
         public Hand(System.Windows.Forms.Label label)
         {
             this.label = label;
+            
+           
         }
     }
 }
