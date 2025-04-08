@@ -51,10 +51,5 @@ namespace BlackJack.classes
             cards.RemoveAt(0);
             return drawCard;
         }
-
-       
-
     }
 }
-
-    
