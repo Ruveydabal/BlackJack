@@ -279,5 +279,6 @@
         private Label Player2Card1;
         private Label DealerCard2;
         private Label dealerCard1;
+        private Button TestNatural;
     }
 }

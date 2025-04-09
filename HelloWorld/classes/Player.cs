@@ -18,5 +18,18 @@ namespace BlackJack.classes
             hand.recieveCard(card);
         }
 
+       public bool Natural()
+        {
+            if (hand.Natural() == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+            
+        }
     }
 }

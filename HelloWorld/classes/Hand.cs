@@ -13,12 +13,12 @@ namespace BlackJack.classes
  
         public Hand(System.Windows.Forms.Label label, System.Windows.Forms.Label label2)
         {
-            this.label = label;
-            this.label2 = label2;
+            this.label = label;//card1
+            this.label2 = label2;//card2
         }
 
         public void recieveCard(Card card)
-        {
+        {//giving the cards 
             cards.Add(card);
             this.label.Text = cards[0].ToString();
             
@@ -28,6 +28,23 @@ namespace BlackJack.classes
             }
         }
 
+        public bool Natural()
+        {
+            //the player has 2 cards
+            //if one of the cards faceValue == 10
+            //and the second cards faceValue == 11
+            //the player has Natural
+
+            if (cards.Count == 2)
+            {
+                if (cards[0].Value == 10 && cards[1].Value == 11 || cards[0].Value == 11 && cards[1].Value == 10)
+                {
+                   return true;
+                }
+            }
+
+            return false;
+        }
         
     }
 }
