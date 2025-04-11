@@ -8,7 +8,7 @@ namespace BlackJack.classes
     {
         Hand hand;
        
-        public Player(System.Windows.Forms.Label label, System.Windows.Forms.Label label2) 
+        public Player(Label label, Label label2) 
         {
             hand = new Hand(label, label2);
         }
@@ -18,5 +18,18 @@ namespace BlackJack.classes
             hand.recieveCard(card);
         }
 
+       public bool Natural()
+        {
+            if (hand.Natural() == true)
+            {//Has Natural
+                return true;
+            }
+
+            else
+            {//Does not have Natural
+                return false;
+            }
+            
+        }
     }
 }
