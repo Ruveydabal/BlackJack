@@ -35,9 +35,9 @@ namespace BlackJack.classes
             {
                 System.Diagnostics.Debug.WriteLine("Natural in class Hand");
                 return true;
-            }//the player does not have Natural
+            }
             else
-            {
+            {//the player does not have Natural
                 System.Diagnostics.Debug.WriteLine("no Natural in class Hand");
                 return false;
             }            
