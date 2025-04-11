@@ -48,6 +48,7 @@
             Player2Card1 = new Label();
             DealerCard2 = new Label();
             dealerCard1 = new Label();
+            natural = new Button();
             SuspendLayout();
             // 
             // ShuffleDeck
@@ -226,11 +227,22 @@
             dealerCard1.TabIndex = 20;
             dealerCard1.Text = "Dealer Card1";
             // 
+            // natural
+            // 
+            natural.Location = new Point(71, 172);
+            natural.Name = "natural";
+            natural.Size = new Size(80, 26);
+            natural.TabIndex = 22;
+            natural.Text = "button3";
+            natural.UseVisualStyleBackColor = true;
+            natural.Click += natural_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(natural);
             Controls.Add(DealerCard2);
             Controls.Add(dealerCard1);
             Controls.Add(Player2Card2);
@@ -280,5 +292,6 @@
         private Label DealerCard2;
         private Label dealerCard1;
         private Button TestNatural;
+        private Button natural;
     }
 }

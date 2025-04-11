@@ -75,19 +75,21 @@ namespace BlackJack
             }
             Card dealingHiddenCard = DealCards();
             hand.recieveCard(dealingHiddenCard);//second card is hidden
-            Console.WriteLine("You have dealt the cards.");
+            System.Diagnostics.Debug.WriteLine("You have dealt the cards.");
 
         }
         public void CheckNatural()
-        {
-            //dealer has to check if the hand of the player Natural == true
-
+        {//dealer has to check if the hand of the player has a Natural
+            
             if (players[0].Natural() == true || players[1].Natural() == true)
             {
-                Console.WriteLine("player has natural");
+                System.Diagnostics.Debug.WriteLine("player has natural");
             }
-
         }
 
+        private void natural_Click(object sender, EventArgs e)
+        {
+          CheckNatural();
+        }
     }
 }
