@@ -1,6 +1,4 @@
 using BlackJack.classes;
-using System.Runtime.CompilerServices;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BlackJack
 {
@@ -13,16 +11,19 @@ namespace BlackJack
         Hand hand;
         //List<Card> cards = new List<Card>();
         Player[] players = new Player[2];
+        int points;
 
 
 
-        /*private enum GameStates
-        {//need to make a state diagram to use this
-            START_GAME,
+        private enum GameStates
+        {//Need to make a state diagram to use this
+            //This is the order of how the player has to go about the game.
             SHUFLLE_CARDS,
             DEAL_AT_START,
-        }*/
-
+            CHECK_NATURAL_PLAYER1,
+            CHECK_NATURAL_PLAYER2,
+            CHECK_NATURAL_DEALER,
+        }
 
         public Form1()
         {//BlackJack game
@@ -32,8 +33,20 @@ namespace BlackJack
             hand = new Hand(dealerCard1, DealerCard2);
         }
 
-        private void ShuffleDeck_Click(object sender, EventArgs e)
+        /*public void HandleEvent()
         {
+            if ()
+            {
+
+            }
+            else
+            {
+
+            }
+        }*/
+
+        private void ShuffleDeck_Click(object sender, EventArgs e)
+        {//When you 
 
             deck.Shuffle();
             System.Diagnostics.Debug.WriteLine("it works");

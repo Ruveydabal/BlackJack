@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-
+﻿
 namespace BlackJack.classes
 {
     public class Hand
@@ -18,7 +14,7 @@ namespace BlackJack.classes
         }
 
         public void recieveCard(Card card)
-        {//giving the cards 
+        {//Giving the cards 
             cards.Add(card);
             this.label.Text = cards[0].ToString();
             
@@ -30,14 +26,14 @@ namespace BlackJack.classes
 
         public bool Natural()
         {
-            //the player has Natural
+            //The player has Natural
             if (cards[0].Value == 10 && cards[1].Value == 11 || cards[0].Value == 11 && cards[1].Value == 10)
             {
                 System.Diagnostics.Debug.WriteLine("Natural in class Hand");
                 return true;
             }
             else
-            {//the player does not have Natural
+            {//The player does not have Natural
                 System.Diagnostics.Debug.WriteLine("no Natural in class Hand");
                 return false;
             }            
