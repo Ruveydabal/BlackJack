@@ -49,11 +49,15 @@
             DealerCard2 = new Label();
             dealerCard1 = new Label();
             natural = new Button();
+            PointsForDealer = new Label();
+            CheckNaturalPlayer1 = new Button();
+            CheckNaturalPlayer2 = new Button();
+            CheckNaturalDealer = new Button();
             SuspendLayout();
             // 
             // ShuffleDeck
             // 
-            ShuffleDeck.Location = new Point(157, 84);
+            ShuffleDeck.Location = new Point(33, 28);
             ShuffleDeck.Name = "ShuffleDeck";
             ShuffleDeck.Size = new Size(94, 29);
             ShuffleDeck.TabIndex = 0;
@@ -63,7 +67,7 @@
             // 
             // DrawCard
             // 
-            DrawCard.Location = new Point(186, 236);
+            DrawCard.Location = new Point(209, 390);
             DrawCard.Name = "DrawCard";
             DrawCard.Size = new Size(94, 29);
             DrawCard.TabIndex = 1;
@@ -74,7 +78,7 @@
             // DrawCardText
             // 
             DrawCardText.AutoSize = true;
-            DrawCardText.Location = new Point(179, 202);
+            DrawCardText.Location = new Point(209, 367);
             DrawCardText.Name = "DrawCardText";
             DrawCardText.Size = new Size(106, 20);
             DrawCardText.TabIndex = 2;
@@ -90,7 +94,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(157, 348);
+            button1.Location = new Point(133, 28);
             button1.Name = "button1";
             button1.Size = new Size(128, 29);
             button1.TabIndex = 6;
@@ -229,19 +233,62 @@
             // 
             // natural
             // 
-            natural.Location = new Point(71, 172);
+            natural.Location = new Point(23, 393);
             natural.Name = "natural";
-            natural.Size = new Size(80, 26);
+            natural.Size = new Size(164, 26);
             natural.TabIndex = 22;
-            natural.Text = "button3";
+            natural.Text = "check Natural for all";
             natural.UseVisualStyleBackColor = true;
             natural.Click += natural_Click;
+            // 
+            // PointsForDealer
+            // 
+            PointsForDealer.AutoSize = true;
+            PointsForDealer.Location = new Point(642, 399);
+            PointsForDealer.Name = "PointsForDealer";
+            PointsForDealer.Size = new Size(119, 20);
+            PointsForDealer.TabIndex = 23;
+            PointsForDealer.Text = "points for dealer";
+            // 
+            // CheckNaturalPlayer1
+            // 
+            CheckNaturalPlayer1.Location = new Point(33, 75);
+            CheckNaturalPlayer1.Name = "CheckNaturalPlayer1";
+            CheckNaturalPlayer1.Size = new Size(192, 29);
+            CheckNaturalPlayer1.TabIndex = 24;
+            CheckNaturalPlayer1.Text = "Check Natural Player1";
+            CheckNaturalPlayer1.UseVisualStyleBackColor = true;
+            CheckNaturalPlayer1.Click += CheckNaturalPlayer1_Click;
+            // 
+            // CheckNaturalPlayer2
+            // 
+            CheckNaturalPlayer2.Location = new Point(33, 118);
+            CheckNaturalPlayer2.Name = "CheckNaturalPlayer2";
+            CheckNaturalPlayer2.Size = new Size(192, 29);
+            CheckNaturalPlayer2.TabIndex = 25;
+            CheckNaturalPlayer2.Text = "Check Natural Player2";
+            CheckNaturalPlayer2.UseVisualStyleBackColor = true;
+            CheckNaturalPlayer2.Click += CheckNaturalPlayer2_Click;
+            // 
+            // CheckNaturalDealer
+            // 
+            CheckNaturalDealer.Location = new Point(33, 155);
+            CheckNaturalDealer.Name = "CheckNaturalDealer";
+            CheckNaturalDealer.Size = new Size(161, 29);
+            CheckNaturalDealer.TabIndex = 26;
+            CheckNaturalDealer.Text = "Check Natural Dealer";
+            CheckNaturalDealer.UseVisualStyleBackColor = true;
+            CheckNaturalDealer.Click += CheckNaturalDealer_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(CheckNaturalDealer);
+            Controls.Add(CheckNaturalPlayer2);
+            Controls.Add(CheckNaturalPlayer1);
+            Controls.Add(PointsForDealer);
             Controls.Add(natural);
             Controls.Add(DealerCard2);
             Controls.Add(dealerCard1);
@@ -293,5 +340,9 @@
         private Label dealerCard1;
         private Button TestNatural;
         private Button natural;
+        private Label PointsForDealer;
+        private Button CheckNaturalPlayer1;
+        private Button CheckNaturalPlayer2;
+        private Button CheckNaturalDealer;
     }
 }

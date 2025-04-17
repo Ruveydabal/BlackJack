@@ -1,43 +1,73 @@
 using BlackJack.classes;
-using System.Runtime.CompilerServices;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BlackJack
 {
     public partial class Form1 : Form
     {
 
-        Card twoOfHearts = new Card(Suits.HEARTS, FaceValues.TWO);
         Random random = new Random();
         Deck deck = new Deck();
-        Hand hand;
+        public Hand handDealer;
         //List<Card> cards = new List<Card>();
         Player[] players = new Player[2];
 
 
 
-        /*private enum GameStates
-        {//need to make a state diagram to use this
-            START_GAME,
+
+        public enum GameStates
+        {//Need to make a state diagram to use this
+            //This is the order of how the player has to go about the game.
             SHUFLLE_CARDS,
             DEAL_AT_START,
-        }*/
+            CHECK_NATURAL_PLAYER1,
+            CHECK_NATURAL_PLAYER2,
+            CHECK_NATURAL_DEALER,
+        }
 
-
+        int pointsDealer;
+        GameStates currentGameStates = GameStates.SHUFLLE_CARDS;
         public Form1()
         {//BlackJack game
             InitializeComponent();
             players[0] = new Player(Player1Card1, Player1Card2);
             players[1] = new Player(Player2Card1, Player2Card2);
-            hand = new Hand(dealerCard1, DealerCard2);
+            handDealer = new Hand(dealerCard1, DealerCard2);
+        }
+
+        public void HandleEvent(GameStates gameState)
+        {
+            if (currentGameStates != gameState)
+            {
+                pointsDealer--;
+            }
+            else
+            {
+                pointsDealer++;
+                switch (gameState)
+                {
+                    case GameStates.SHUFLLE_CARDS:
+                        currentGameStates = GameStates.DEAL_AT_START;
+                        break;
+                    case GameStates.DEAL_AT_START:
+                        currentGameStates = GameStates.CHECK_NATURAL_PLAYER1;
+                        break;
+                    case GameStates.CHECK_NATURAL_PLAYER1:
+                        currentGameStates = GameStates.CHECK_NATURAL_PLAYER2;
+                        break;
+                    case GameStates.CHECK_NATURAL_PLAYER2:
+                        currentGameStates = GameStates.CHECK_NATURAL_DEALER;
+                        break;
+                }
+            }
+
+            PointsForDealer.Text = pointsDealer.ToString();
         }
 
         private void ShuffleDeck_Click(object sender, EventArgs e)
         {
-
+            HandleEvent(GameStates.SHUFLLE_CARDS);
             deck.Shuffle();
             System.Diagnostics.Debug.WriteLine("it works");
-
         }
 
         private void DrawCard_Click(object sender, EventArgs e)
@@ -55,6 +85,7 @@ namespace BlackJack
 
         private void DealingCardsButton(object sender, EventArgs e)
         {
+           
             //Dealing the cards to the players
             for (int i = 0; i < 2; i++)
             {
@@ -71,25 +102,58 @@ namespace BlackJack
             {
                 Card dealingCard = DealCards();
                 dealingCard.Flip();
-                hand.recieveCard(dealingCard);
+                handDealer.recieveCard(dealingCard);
             }
             Card dealingHiddenCard = DealCards();
-            hand.recieveCard(dealingHiddenCard);//second card is hidden
+            handDealer.recieveCard(dealingHiddenCard);//second card is hidden
             System.Diagnostics.Debug.WriteLine("You have dealt the cards.");
+            HandleEvent(GameStates.DEAL_AT_START);
 
         }
         public void CheckNatural()
         {//dealer has to check if the hand of the player has a Natural
-            
-            if (players[0].Natural() == true || players[1].Natural() == true)
+
+            if (players[0].Natural() == true)
             {
+                System.Diagnostics.Debug.WriteLine("player has natural");
+            }
+            if (players[1].Natural() == true)
+            {
+                HandleEvent(GameStates.CHECK_NATURAL_PLAYER2);
                 System.Diagnostics.Debug.WriteLine("player has natural");
             }
         }
 
         private void natural_Click(object sender, EventArgs e)
+        {//this is not needed anymore?
+            CheckNatural();
+        }
+
+        private void CheckNaturalPlayer1_Click(object sender, EventArgs e)
         {
-          CheckNatural();
+            CheckNatural();
+            HandleEvent(GameStates.CHECK_NATURAL_PLAYER1);
+        }
+
+        private void CheckNaturalPlayer2_Click(object sender, EventArgs e)
+        {
+            CheckNatural();
+            HandleEvent(GameStates.CHECK_NATURAL_PLAYER2);
+        }
+
+        private void CheckNaturalDealer_Click(object sender, EventArgs e)
+        {
+            //Will keep giving +1 point evry time the button is clicked do not know why.
+            HandleEvent(GameStates.CHECK_NATURAL_DEALER);
+            if (handDealer.Natural() == true)
+            {
+                System.Diagnostics.Debug.WriteLine("Dealer has natural blackjack");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Dealer does not have a natural blackjack");
+            }
+
         }
     }
 }
