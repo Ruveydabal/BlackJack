@@ -143,6 +143,8 @@ namespace BlackJack
 
         private void CheckNaturalDealer_Click(object sender, EventArgs e)
         {
+            //Will keep giving +1 point evry time the button is clicked do not know why.
+            HandleEvent(GameStates.CHECK_NATURAL_DEALER);
             if (handDealer.Natural() == true)
             {
                 System.Diagnostics.Debug.WriteLine("Dealer has natural blackjack");
