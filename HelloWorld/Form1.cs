@@ -5,10 +5,9 @@ namespace BlackJack
     public partial class Form1 : Form
     {
 
-        Card twoOfHearts = new Card(Suits.HEARTS, FaceValues.TWO);
         Random random = new Random();
         Deck deck = new Deck();
-        Hand hand;
+        public Hand handDealer;
         //List<Card> cards = new List<Card>();
         Player[] players = new Player[2];
 
@@ -32,7 +31,7 @@ namespace BlackJack
             InitializeComponent();
             players[0] = new Player(Player1Card1, Player1Card2);
             players[1] = new Player(Player2Card1, Player2Card2);
-            hand = new Hand(dealerCard1, DealerCard2);
+            handDealer = new Hand(dealerCard1, DealerCard2);
         }
 
         public void HandleEvent(GameStates gameState)
@@ -86,6 +85,7 @@ namespace BlackJack
 
         private void DealingCardsButton(object sender, EventArgs e)
         {
+           
             //Dealing the cards to the players
             for (int i = 0; i < 2; i++)
             {
@@ -102,10 +102,10 @@ namespace BlackJack
             {
                 Card dealingCard = DealCards();
                 dealingCard.Flip();
-                hand.recieveCard(dealingCard);
+                handDealer.recieveCard(dealingCard);
             }
             Card dealingHiddenCard = DealCards();
-            hand.recieveCard(dealingHiddenCard);//second card is hidden
+            handDealer.recieveCard(dealingHiddenCard);//second card is hidden
             System.Diagnostics.Debug.WriteLine("You have dealt the cards.");
             HandleEvent(GameStates.DEAL_AT_START);
 
@@ -125,7 +125,7 @@ namespace BlackJack
         }
 
         private void natural_Click(object sender, EventArgs e)
-        {
+        {//this is not needed anymore?
             CheckNatural();
         }
 
@@ -143,7 +143,15 @@ namespace BlackJack
 
         private void CheckNaturalDealer_Click(object sender, EventArgs e)
         {
-            
+            if (handDealer.Natural() == true)
+            {
+                System.Diagnostics.Debug.WriteLine("Dealer has natural blackjack");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Dealer does not have a natural blackjack");
+            }
+
         }
     }
 }
